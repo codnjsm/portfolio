@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME_Chae's Portfolio</title>
-    <link rel="stylesheet" href="../css/reset.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chae's Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <a href="#"><h1>Chae</h1></a>
-    </header>
-    <section></section>
+
+  <!-- 헤더 -->
+   <header id="header"></header>
+
+  <!-- 섹션: 소개 -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>안채원입니다. 웹 퍼블리셔로 다양한 프로젝트에 참여했습니다...</p>
+  </section>
+
+  <!-- 섹션: 프로젝트 -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>React 기반 쇼핑몰 퍼블리싱</li>
+      <li>AEM 콘텐츠 관리 프로젝트</li>
+      <!-- 필요에 따라 링크나 썸네일 추가 가능 -->
+    </ul>
+  </section>
+
+  <!-- 섹션: 연락처 -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: chaewon@example.com</p>
+  </section>
+
+  <!-- footer (선택) -->
+  <footer id="footer"></footer>
+
+     <script>
+        $(function () {
+            $('#header').load('header.html');
+            $('#footer').load('footer.html');
+        });
+    </script>
 </body>
 </html>
