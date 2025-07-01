@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="/css/common.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header id="header"></header>
+
+    <ul>
+        <li><a href="#profile">profile</a></li>
+        <li><a href="#education">education</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#summary">summary</a></li>
+    </ul>
+
+    <section id="profile">Profile</section>
+    <section id="education">Education</section>
+    <section id="skills">Skills</section>
+    <section id="summary">Experience Summary</section>
+
+    
+    <footer id="footer"></footer>
+
+    <script>
+        $(function () {
+            $('#header').load('/html/header.html');
+            $('#footer').load('/html/footer.html');
+        });
+    </script>
+
+    </body>
+    </html>
