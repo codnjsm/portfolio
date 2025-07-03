@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
-  <link rel="stylesheet" href="/css/common.css"/>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chae's Portfolio</title>
+    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/reset.css"/>
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+    <script src="/js/portfolio.js"></script>
+    <script src="/js/transition.js"></script>
 </head>
-<body>
-    <!-- 헤더 -->
-    <header id="header"></header>
-    
 
-    <!-- 섹션: 소개 -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>안채원입니다. 웹 퍼블리셔로 다양한 프로젝트에 참여했습니다...</p>
-    </section>
+<body class="no-scroll">
+    <div id="preloader">
+        <div id="lottie-loader" style="width: 300px; height: 300px;"></div>
+    </div>
+    <div class="wrapper">
+        <header id="header"></header>
+        <div class="main-content">
+            <section class="left">about my works</section>
+            <section class="right">about myself</section>
+        </div>
+        <footer id="footer"></footer>
+    </div>
 
-    <!-- 섹션: 프로젝트 -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-        <li>React 기반 쇼핑몰 퍼블리싱</li>
-        <li>AEM 콘텐츠 관리 프로젝트</li>
-        <!-- 필요에 따라 링크나 썸네일 추가 가능 -->
-        </ul>
-    </section>
-
-    <!-- 섹션: 연락처 -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: chaewon@example.com</p>
-    </section>
-
-    <!-- footer (선택) -->
-    <footer id="footer"></footer>
-
+    <!-- JS -->
     <script>
-        $(function () {
-            $('#header').load('/html/header.html');
-            $('#footer').load('/html/footer.html');
-        });
+    lottie.loadAnimation({
+        container: document.getElementById('lottie-loader'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/src/loading.json' 
+    });
     </script>
 
-    </body>
-    </html>
+    <script>
+        loadHeaderFooter(); 
+    </script>
+
+</body>
+</html>

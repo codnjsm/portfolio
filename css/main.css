@@ -1,1 +1,16 @@
 @charset "UTF-8";
+
+.no-scroll{
+    overflow: hidden;
+}
+
+.main-content{
+    height: 100vh;
+    display: flex;
+}
+.main-content section{
+    width: 50%;
+}
+.main-content .left{
+    border-right: 1px solid black;
+}

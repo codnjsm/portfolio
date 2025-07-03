@@ -3,35 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me</title>
+  <title>Chae's Portfolio</title>
   <link rel="stylesheet" href="/css/common.css"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <link rel="stylesheet" href="/css/reset.css"/>
+  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/portfolio.js"></script>
+  <script src="/js/transition.js"></script>
 </head>
 <body>
-
-    <header id="header"></header>
-
-    <ul>
-        <li><a href="#profile">profile</a></li>
-        <li><a href="#education">education</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#summary">summary</a></li>
-    </ul>
-
-    <section id="profile">Profile</section>
-    <section id="education">Education</section>
-    <section id="skills">Skills</section>
-    <section id="summary">Experience Summary</section>
-
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div class="wrapper">
+        <header id="header"></header>
+        <div class="main-content">
+            <ul class="sub-nav">
+                <li><a href="#profile">profile</a></li>
+                <li><a href="#education">education</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#summary">summary</a></li>
+            </ul>
+            about me
+        </div>
+        <footer id="footer"></footer>
+    </div>
     
-    <footer id="footer"></footer>
-
     <script>
-        $(function () {
-            $('#header').load('/html/header.html');
-            $('#footer').load('/html/footer.html');
-        });
+        loadHeaderFooter(); 
     </script>
 
     </body>
+
     </html>

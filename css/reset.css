@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd {
   margin: 0;
   padding: 0;
@@ -16,8 +21,8 @@ ul, ol {
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 16px;
+  font-family: 'SUIT', sans-serif;
+  font-size: 1.6rem;
   line-height: 1.6;
   color: #222;
   background-color: #fff;
@@ -41,10 +46,6 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
