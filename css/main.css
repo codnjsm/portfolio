@@ -1,16 +1,147 @@
 @charset "UTF-8";
 
-.no-scroll{
-    overflow: hidden;
-}
-
 .main-content{
     height: 100vh;
     display: flex;
 }
-.main-content section{
+.main-content section {
     width: 50%;
 }
-.main-content .left{
-    border-right: 1px solid black;
+.main-content .left {
+    /* background-color: beige; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.main-content .left .circle-container {
+    position: relative;
+    width: 35rem;
+    height: 35rem;
+    margin: 10rem auto;
+    transition: transform 0.3s ease;
+}
+.main-content .left .circle-container:hover {
+    transform: scale(1.1);
+}
+.main-content .center-image {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.main-content .left .circular-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 37rem;
+    height: 37rem;
+    animation: spin 30s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+.main-content .left .circular-text span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    font-size: 1.4rem;
+    color: #333;
+    white-space: pre;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.main-content .right {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.main-content .right .intro-desc {
+    margin-bottom: 6rem;
+}
+.main-content .right .intro-desc h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+} 
+.main-content .right .intro-desc h1 strong {
+    font-size: 4.4rem;
+}
+.main-content .right .intro-desc h2 {
+    font-size: 2.2rem;
+    color: #666;
+}
+.name {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.name .typing {
+    display: inline-block;
+    font-size: inherit;
+    font-weight: 900;
+    white-space: nowrap;
+    letter-spacing: 0;
+}
+
+.name .cursor::after {
+    content: '|';
+    animation: typing 2s infinite;
+    margin-left: .2rem;
+    font-weight: normal;
+}
+
+@keyframes typing {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.main-content .right .personal-info {
+    margin-bottom: 6rem;
+}
+.main-content .right .personal-info h2 {
+    font-size: 2.2rem;
+    color: #666;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+.main-content .right .personal-info ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.main-content .right .personal-info ul li {
+    width: 50%;
+    padding-bottom: 1rem;
+}
+.main-content .right .more-info-btn {
+    display: inline-block;
+    height: 4.6rem;
+    padding: 0 3rem;
+    border-radius: 2.6rem;
+    background-color: #333;
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 4.6rem;
+    transition: transform 0.3s ease;
+}
+.main-content .right .more-info-btn:hover {
+    transform: scale(1.05);
+    will-change: transform;
+}
+ 
+
+
+
+
+
