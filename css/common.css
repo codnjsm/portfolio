@@ -15,9 +15,21 @@
 }
 
 .wrapper {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+.wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper.fade-out {
+  opacity: 0;
+  transform: translateY(1rem);
 }
 
 .main-content {
