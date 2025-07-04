@@ -1,10 +1,9 @@
-// 페이지 진입 시 로딩 제거 + 콘텐츠 나타나기
 $(window).on('load', function () {
   setTimeout(function () {
     $('#preloader').fadeOut(500, function () {
       $('.wrapper').fadeTo(300, 1);
     });
-  }, 1500); // ← 로딩 화면 1.5초 유지
+  }, 1600);
 });
 
 $(function () {
@@ -34,5 +33,17 @@ $(function () {
       window.location.href = link;
     }
   });
+});
+
+$(function () {
+  if ($('#lottie-loader').length) {
+    lottie.loadAnimation({
+      container: $('#lottie-loader')[0], // jQuery 객체 → DOM element로 변환
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'src/loading.json'
+    });
+  }
 });
 

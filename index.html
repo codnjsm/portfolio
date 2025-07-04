@@ -16,9 +16,9 @@
 
 <body class="no-scroll">
     <div id="preloader">
-        <div id="lottie-loader" style="width: 300px; height: 300px;"></div>
+        <div id="lottie-loader" style="width: 200px; height: 200px;"></div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" style="opacity: 0;">
         <header id="header"></header>
         <div class="main-content">
             <section class="left">about my works</section>
@@ -26,21 +26,6 @@
         </div>
         <footer id="footer"></footer>
     </div>
-
-    <!-- JS -->
-    <script>
-    lottie.loadAnimation({
-        container: document.getElementById('lottie-loader'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'src/loading.json' 
-    });
-    </script>
-
-    <script>
-        loadHeaderFooter(); 
-    </script>
 
 </body>
 </html>
