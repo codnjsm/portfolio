@@ -109,6 +109,16 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: white;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  font-size: 1.4rem;
+}
+
+@media (max-width: 480px) {
+  header .main-nav > ul {
+    font-size: 1.2rem;
+  }
+  footer {
+    font-size: 1.2rem;
+  }
 }
 
