@@ -113,6 +113,11 @@ footer {
 @media (max-width: 480px) {
   header .main-nav > ul {
     font-size: 1.2rem;
+    gap: 2rem;
+  }
+  header .main-nav > ul > li::after {
+    top: 0.5rem;
+    left: -1rem;
   }
   footer {
     font-size: 1.2rem;
