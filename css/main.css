@@ -208,6 +208,9 @@
 }
 
 @media (max-width: 576px) {
+    .main-content {
+        margin-top: 10rem;
+    }
     .main-content .left .circle-container {
         width: 26rem;
         height: 26rem;
@@ -250,6 +253,9 @@
 }
 
 @media (max-width: 480px) {
+    .main-content {
+        margin-top: 8rem;
+    }
     .main-content .left .circle-container {
         width: 20rem;
         height: 20rem;
