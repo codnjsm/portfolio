@@ -14,8 +14,7 @@ $(function () {
       $wrapper.addClass('enter-sub');
     }
   }
-  
- // 헤더/푸터 모두 로드 완료 후에 transition 적용
+ 
   const isGithubPages = location.hostname.includes('github.io');
   const base = isGithubPages ? '/portfolio/' : '/';
  
