@@ -32,6 +32,8 @@ $(function () {
     $('.link-works').attr('href', base + 'html/works.html');
     $('.link-about').attr('href', base + 'html/aboutMe.html');
     $('.link-contact').attr('href', base + 'html/contact.html');
+     $('.circle-link').attr('href', base + 'html/aboutMe.html');
+     
     onPartLoaded();
   });
  
