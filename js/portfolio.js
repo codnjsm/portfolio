@@ -1,6 +1,4 @@
 $(function () {
-  const isGithubPages = location.hostname.includes('github.io');
-  const base = isGithubPages ? '/portfolio/' : '/';
 
   // 헤더/푸터 불러오기
   $('#header').load(base + 'html/header.html', function () {
