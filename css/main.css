@@ -1,54 +1,54 @@
 @charset "UTF-8";
 
-.main-content {
-  height: 100vh;
-  display: flex;
+.main-content{
+    height: 100vh;
+    display: flex;
 }
 .main-content section {
-  width: 50%;
+    width: 50%;
 }
 .main-content .left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .main-content .left .circle-container {
-  position: relative;
-  width: 35rem;
-  height: 35rem;
-  margin: 10rem auto;
-  transition: transform 0.3s ease;
+    position: relative;
+    width: 35rem;
+    height: 35rem;
+    margin: 10rem auto;
+    transition: transform 0.3s ease;
 }
 .main-content .left .circle-container:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 .main-content .center-image {
-  position: absolute;
-  width: 10rem;
-  height: 10rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 .main-content .left .circular-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 37rem;
-  height: 37rem;
-  animation: spin 30s linear infinite;
-  z-index: 1;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 37rem;
+    height: 37rem;
+    animation: spin 30s linear infinite;
+    z-index: 1;
+    pointer-events: none;
 }
 .main-content .left .circular-text span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0 0;
-  font-size: 1.4rem;
-  color: #333;
-  white-space: pre;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    font-size: 1.4rem;
+    color: #333;
+    white-space: pre;
 }
 @keyframes spin {
   100% {
@@ -61,7 +61,7 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid #333;
   border-radius: 10px;
   width: 25rem;
@@ -79,7 +79,7 @@
 }
 
 .main-content .left .speech-bubble::before {
-  content: "";
+  content: '';
   position: absolute;
   border-style: solid;
   border-width: 14px 14px 0;
@@ -92,7 +92,7 @@
 }
 
 .main-content .left .speech-bubble::after {
-  content: "";
+  content: '';
   position: absolute;
   border-style: solid;
   border-width: 13px 13px 0;
@@ -109,258 +109,209 @@
   transform: translateX(-50%) translateY(-10px);
 }
 
+
 .main-content .right {
-  display: flex;
-  justify-content: start;
-  align-items: center;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 .main-content .right .intro-desc {
-  margin-bottom: 6rem;
+    margin-bottom: 6rem;
 }
 .main-content .right .intro-desc h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+} 
 .main-content .right .intro-desc h2 {
-  font-size: 2.2rem;
-  color: #666;
+    font-size: 2.2rem;
+    color: #666;
 }
 .main-content .right .name {
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  text-align: left;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
 }
 
 .main-content .right .name .typing {
-  display: inline-block;
-  font-size: inherit;
-  font-weight: 900;
-  white-space: nowrap;
-  letter-spacing: 0;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: 900;
+    white-space: nowrap;
+    letter-spacing: 0;
 }
 
 .main-content .right .name .cursor::after {
-  content: "|";
-  animation: typing 2s infinite;
-  margin-left: 0.2rem;
-  font-weight: normal;
+    content: '|';
+    animation: typing 2s infinite;
+    margin-left: .2rem;
+    font-weight: normal;
 }
 
 @keyframes typing {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .main-content .right .personal-info {
-  margin-bottom: 6rem;
+    margin-bottom: 6rem;
 }
 .main-content .right .personal-info h2 {
-  font-size: 2.2rem;
-  color: #666;
-  font-weight: 900;
-  margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: #666;
+    font-weight: 900;
+    margin-bottom: 2rem;
 }
 .main-content .right .personal-info ul {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 .main-content .right .personal-info ul li {
-  width: 50%;
-  padding-bottom: 1rem;
+    width: 50%;
+    padding-bottom: 1rem;
 }
 .main-content .right .more-info-btn {
-  display: inline-block;
-  height: 4.6rem;
-  padding: 0 3rem;
-  border-radius: 2.6rem;
-  background-color: #333;
-  font-size: 1.4rem;
-  color: #fff;
-  line-height: 4.6rem;
-  transition: transform 0.3s ease;
+    display: inline-block;
+    height: 4.6rem;
+    padding: 0 3rem;
+    border-radius: 2.6rem;
+    background-color: #333;
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 4.6rem;
+    transition: transform 0.3s ease;
 }
 .main-content .right .more-info-btn:hover {
-  transform: scale(1.05);
-  will-change: transform;
+    transform: scale(1.05);
+    will-change: transform;
 }
+
 
 /* 반응형 작업 */
 @media (max-width: 1024px) {
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 6rem;
-    margin-top: 12rem;
-  }
-  .main-content section {
-    width: 80%;
-  }
-  .main-content .right .more-info-btn {
-    margin-bottom: 6rem;
-  }
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 6rem;
+        margin-top: 12rem;
+    }
+    .main-content section {
+        width: 80%;
+    }
+    .main-content .right .more-info-btn {
+        margin-bottom: 6rem;
+    }
 }
 
 @media (max-width: 576px) {
-  .main-content {
-    margin-top: 10rem;
-  }
-  .main-content .left .circle-container {
-    width: 26rem;
-    height: 26rem;
-  }
-  .main-content .left .circular-text {
-    width: 26rem;
-    height: 28rem;
-  }
-  .main-content .left .speech-bubble {
-    width: 22rem;
-    font-size: 1.6rem;
-    padding: 1.5rem;
-  }
-  .main-content .left .speech-bubble::before {
-    border-width: 12px 12px 0;
-    bottom: -12px;
-    left: calc(50% - 13px);
-  }
-  .main-content .left .speech-bubble::after {
-    border-width: 11px 11px 0;
-    bottom: -10px;
-    left: calc(50% - 12px);
-  }
-  .main-content .right .intro-desc {
-    font-size: 1.4rem;
-  }
-  .main-content .right .intro-desc h1 {
-    font-size: 3rem;
-  }
-  .main-content .right .intro-desc h2 {
-    font-size: 1.8rem;
-  }
-  .main-content .right .personal-info {
-    font-size: 1.4rem;
-  }
-  .main-content .right .personal-info h2 {
-    font-size: 1.8rem;
-  }
-  .main-content .right .more-info-btn {
-    font-size: 1.2rem;
-    padding: 0 2rem;
-    height: 4rem;
-    line-height: 4rem;
-  }
+    .main-content {
+        margin-top: 10rem;
+    }
+    .main-content .left .circle-container {
+        width: 26rem;
+        height: 26rem;
+    }
+    .main-content .left .circular-text{
+        width: 26rem;
+        height: 28rem;
+    }
+    .main-content .left .speech-bubble {
+        width: 22rem;
+        font-size: 1.6rem;
+        padding: 1.5rem;
+    }
+    .main-content .left .speech-bubble::before {
+        border-width: 12px 12px 0;
+        bottom: -12px;
+        left: calc(50% - 13px);
+    }
+     .main-content .left .speech-bubble::after{
+        border-width: 11px 11px 0;
+        bottom: -10px;
+        left: calc(50% - 12px);
+    }
+    .main-content .right .intro-desc{
+        font-size: 1.4rem;
+    }
+    .main-content .right .intro-desc h1 {
+        font-size: 3rem;
+    } 
+    .main-content .right .intro-desc h2 {
+        font-size: 1.8rem;
+    }
+    .main-content .right .personal-info {
+        font-size: 1.4rem;
+    }
+    .main-content .right .personal-info h2 {
+        font-size: 1.8rem;
+    }
+    .main-content .right .more-info-btn {
+        font-size: 1.2rem;
+        padding: 0 2rem;
+        height: 4rem;   
+        line-height: 4rem;
+    }
+    
 }
 
 @media (max-width: 480px) {
-  .main-content {
-    margin-top: 8rem;
-  }
-  .main-content section {
-    width: 100%;
-  }
-  .main-content .left .circle-container {
-    width: 20rem;
-    height: 20rem;
-  }
-  .main-content .left .circular-text {
-    width: 20rem;
-    height: 22rem;
-  }
-  .main-content .left .speech-bubble {
-    width: 18rem;
-    font-size: 1.4rem;
-    padding: 1rem;
-  }
-  .main-content .left .speech-bubble::before {
-    border-width: 10px 10px 0;
-    bottom: -10px;
-    left: calc(50% - 11px);
-  }
-  .main-content .left .speech-bubble::after {
-    border-width: 9px 9px 0;
-    bottom: -8px;
-    left: calc(50% - 10px);
-  }
-  .main-content .right .intro-desc {
-    font-size: 1.2rem;
-    margin-bottom: 4rem;
-  }
-  .main-content .right .intro-desc h1 {
-    font-size: 2.4rem;
-  }
-  .main-content .right .intro-desc h2 {
-    font-size: 1.4rem;
-  }
-  .main-content .right .personal-info {
-    font-size: 1.2rem;
-    margin-bottom: 4rem;
-  }
-  .main-content .right .personal-info h2 {
-    font-size: 1.6rem;
-  }
-  .main-content .right .more-info-btn {
-    margin-bottom: 4rem;
-  }
-}
-/* ===== Parallax & 배너 덮어쓰기 ===== */
-
-/* 스크롤 충분히 생기도록 강제 높이 제거 */
-.main-content {
-  height: auto !important;
+    .main-content {
+        margin-top: 8rem;
+    }
+    .main-content section {
+        width: 100%;
+    }
+    .main-content .left .circle-container {
+        width: 20rem;
+        height: 20rem;
+    }
+    .main-content .left .circular-text {
+        width: 20rem;
+        height: 22rem;
+    }
+    .main-content .left .speech-bubble {
+        width: 18rem;
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+    .main-content .left .speech-bubble::before {
+        border-width: 10px 10px 0;
+        bottom: -10px;
+        left: calc(50% - 11px);
+    }
+     .main-content .left .speech-bubble::after{
+        border-width: 9px 9px 0;
+        bottom: -8px;
+        left: calc(50% - 10px);
+    }
+    .main-content .right .intro-desc {
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+    }
+    .main-content .right .intro-desc h1 {
+        font-size: 2.4rem;
+    } 
+    .main-content .right .intro-desc h2 {
+        font-size: 1.4rem;
+    }
+    .main-content .right .personal-info {
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+    }
+    .main-content .right .personal-info h2 {
+        font-size: 1.6rem;
+    }
+    .main-content .right .more-info-btn {
+        margin-bottom: 4rem;
+    }
 }
 
-/* 배너처럼 가로로 길게 보이는 반응형 높이 */
-.px-wrap {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  height: clamp(220px, 30vw, 520px);
-  width: 100%;
-}
 
-/* 이미지 중앙 기준 + 상하 이동해도 빈 공간 안 보이도록 여유 크기 */
-.px-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); /* ✅ 개별 translate 속성 금지 */
-  min-width: 130%;
-  min-height: 130%;
-  object-fit: cover;
-  will-change: transform;
-}
 
-/* 전역 클래스 대신 로컬 섹션 */
-.my-section {
-  padding: 56px 0;
-  background: #fff;
-}
-.my-container {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
 
-/* 고정 헤더 겹침 방지(필요 시) */
-#header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
 
-/* 접근성: 모션 최소화 환경 */
-@media (prefers-reduced-motion: reduce) {
-  .px-img {
-    transform: translate(-50%, -50%) !important;
-  }
-}
+

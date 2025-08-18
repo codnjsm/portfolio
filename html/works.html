@@ -1,71 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chae's Portfolio</title>
-
-    <!-- CSS: reset → common → main (내 CSS가 마지막에 오도록) -->
-    <link rel="stylesheet" href="../css/reset.css" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-
-    <!-- 폰트 (선택) -->
-    <link
-      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
-      rel="stylesheet"
-    />
-
-    <!-- jQuery 먼저 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- 사이트 스크립트들 -->
-    <script src="../js/portfolio.js"></script>
-    <script src="../js/transition.js"></script>
-    <!-- Parallax (rAF 버전) -->
-    <script src="../js/parallax.js"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chae's Portfolio</title>
+  <link rel="stylesheet" href="../css/common.css"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/reset.css"/>
+  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/portfolio.js"></script>
+  <script src="../js/transition.js"></script>
+</head>
+<body>
     <header id="header"></header>
-
     <div class="wrapper">
-      <!-- 인트로: 스크롤 충분히 생기도록 100vh 제거 -->
-      <div class="main-content">
-        <section class="my-section">
-          <div class="my-container">
-            <p>
-              그동안 진행해온 작업들을 소개합니다. 대부분 회사 내부 페이지로
-              보안 정책상 실제 화면 공개가 어려워 브랜드 이미지를 대체 자료로
-              사용한 점 양해 부탁드립니다.
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <!-- Parallax #1 (가로 배너) -->
-      <section class="px-wrap" data-speed="0.5">
-        <img class="px-img" src="../src/chanel.jpg" alt="hero" />
-      </section>
-
-      <section class="my-section">
-        <div class="my-container">
-          <h2 class="header">Parallax</h2>
-          <p class="grey-text text-darken-3">여기에 소개 문구 넣기</p>
+        <div class="main-content">
+            works
         </div>
-      </section>
-
-      <!-- Parallax #2 -->
-      <section class="px-wrap" data-speed="0.5">
-        <img class="px-img" src="../src/img_thumbnail_bms.jpg" alt="second" />
-      </section>
-
-      <section class="my-section">
-        <div class="my-container">
-          <h2 class="header">Parallax</h2>
-          <p class="grey-text text-darken-3">여기에 소개 문구 넣기</p>
-        </div>
-      </section>
     </div>
-
     <footer id="footer"></footer>
-  </body>
+</body>
 </html>
