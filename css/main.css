@@ -320,10 +320,15 @@
 }
 .about-me .info-block {
     width: 48%;
-    padding: 3rem;
+    padding: 3rem 3rem 4rem;
     border: 1px solid #ccc;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-me .info-block:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 .about-me .info-title {
     font-weight: 700;
@@ -341,8 +346,32 @@
 .about-me .info-list li:last-child {
     margin-bottom: 0;
 }
+
+/* 반응형 */
 @media (max-width: 1024px) {
     .about-me .info-block {
         width: 100%;
+    }
+}
+@media (max-width: 576px) {
+    .about-me .summary {
+        font-size: 1.4rem;
+    }
+    .about-me .info-title {
+        font-size: 2rem;
+    }
+    .about-me .info-list li {
+        font-size: 1.4rem;
+    }
+}
+@media (max-width: 480px) {
+    .about-me .summary {
+        font-size: 1.2rem;
+    }
+    .about-me .info-title {
+        font-size: 1.8rem;
+    }
+    .about-me .info-list li {
+        font-size: 1.2rem;
     }
 }
