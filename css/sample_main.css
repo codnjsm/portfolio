@@ -1,0 +1,564 @@
+@charset "UTF-8";
+
+/* common style */
+body {
+  font-family: "SUIT", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.wrapper {
+  opacity: 0;
+  transform: translateY(4rem);
+  transition: opacity 2s ease, transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 5rem);
+}
+
+body.loaded .wrapper.enter-main {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 2s ease, transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.loaded .wrapper.enter-sub {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease;
+}
+
+section {
+  margin-top: 5rem;
+  padding: 3rem;
+}
+
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 999;
+}
+
+header .logo {
+  font-weight: 800;
+}
+
+header .main-nav > ul {
+  display: flex;
+  gap: 3rem;
+}
+
+header .main-nav > ul > li {
+  position: relative;
+}
+
+header .main-nav > ul > li .nav-txt {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  transform-origin: center bottom;
+  font-size: 1.4rem;
+}
+
+header .main-nav > ul > li .nav-txt:hover {
+  transform: scale(0.95);
+  color: #555;
+}
+
+header .main-nav > ul > li:first-child::after {
+  display: none;
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 1.4rem;
+}
+
+.heading-wrap {
+  text-align: center;
+  padding: 6rem 0;
+  position: relative;
+}
+.heading-wrap h1 {
+  font-size: 5.3rem;
+  color: #333;
+  font-weight: 900;
+  margin: 1rem auto;
+}
+.heading-wrap .title-bg {
+  font-size: 11rem;
+  left: 0px;
+  letter-spacing: 6rem;
+  position: absolute;
+  right: 0px;
+  top: 53%;
+  text-transform: uppercase;
+  font-weight: 800;
+  transform: translateY(-53%);
+  opacity: 0.07;
+}
+.heading-wrap .title-bg.on {
+  transition: 1.1s;
+  letter-spacing: 1rem;
+}
+
+@media (max-width: 480px) {
+  header .main-nav > ul {
+    font-size: 1.2rem;
+    gap: 2rem;
+  }
+  header .main-nav > ul > li::after {
+    top: 0.5rem;
+    left: -1rem;
+  }
+  footer {
+    font-size: 1.2rem;
+  }
+}
+
+/* intro section */
+.intro-section {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.intro-section > div {
+  width: 50%;
+}
+.intro-section .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.intro-section .left .circle-container {
+  position: relative;
+  width: 35rem;
+  height: 35rem;
+  margin: 10rem auto;
+  transition: transform 0.3s ease;
+}
+.intro-section .left .circle-container:hover {
+  transform: scale(1.1);
+}
+.intro-section .center-image {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.intro-section .left .circular-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 37rem;
+  height: 37rem;
+  animation: spin 30s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+.intro-section .left .circular-text span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  font-size: 1.4rem;
+  color: #333;
+  white-space: pre;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.intro-section .left .speech-bubble {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: #ffffff;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 25rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 10;
+}
+
+.intro-section .left .speech-bubble::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 14px 14px 0;
+  border-color: #777 transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  bottom: -14px;
+  left: calc(50% - 16px);
+}
+
+.intro-section .left .speech-bubble::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 13px 13px 0;
+  border-color: #fff transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  bottom: -12px;
+  left: calc(50% - 15px);
+}
+
+.intro-section .left .circle-container:hover .speech-bubble {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.intro-section .right {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.intro-section .right .intro-desc {
+  margin-bottom: 6rem;
+}
+.intro-section .right .intro-desc h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.intro-section .right .intro-desc h2 {
+  font-size: 2.2rem;
+  color: #666;
+}
+.intro-section .right .name {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.intro-section .right .name .typing {
+  display: inline-block;
+  font-size: inherit;
+  font-weight: 900;
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.intro-section .right .name .cursor::after {
+  content: "|";
+  animation: typing 2s infinite;
+  margin-left: 0.2rem;
+  font-weight: normal;
+}
+
+@keyframes typing {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.intro-section .right .personal-info {
+  margin-bottom: 6rem;
+}
+.intro-section .right .personal-info h2 {
+  font-size: 2.2rem;
+  color: #666;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+.intro-section .right .personal-info ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.intro-section .right .personal-info ul li {
+  width: 50%;
+  padding-bottom: 1rem;
+}
+.intro-section .right .more-info-btn {
+  display: inline-block;
+  height: 4.6rem;
+  padding: 0 3rem;
+  border-radius: 2.6rem;
+  background-color: #333;
+  font-size: 1.4rem;
+  color: #fff;
+  line-height: 4.6rem;
+  transition: transform 0.3s ease;
+}
+.intro-section .right .more-info-btn:hover {
+  transform: scale(1.05);
+  will-change: transform;
+}
+.scroll-cue {
+  position: absolute; /* ← 고정 */
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  z-index: 2000; /* 헤더보다 확실히 위 */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.scroll-cue lottie-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* about me */
+.about-section .cv-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.about-section .cv-block {
+  margin-bottom: 8rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-section .cv-block.cv-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section .cv-title {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.about-section .cv-summary {
+  margin: 0 0 12px;
+  color: #555;
+  font-size: 16px;
+}
+
+.about-section .cv-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.25em; /* 불릿 들여쓰기 */
+}
+
+.about-section .cv-item {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 6px 0;
+  flex-wrap: nowrap; /* 좁은 화면에서 줄바꿈 허용 */
+}
+
+.about-section .cv-left {
+  color: #222;
+  /* 긴 항목이 자연스럽게 줄바꿈되도록 */
+  min-width: 0;
+  flex: 1 1 auto;
+  width: 80%;
+}
+
+.about-section .cv-right {
+  margin-left: auto; /* 날짜를 오른쪽으로 밀기 */
+  color: #8a8a8a;
+  white-space: nowrap; /* 날짜는 한 줄 유지 */
+  font-size: 15px;
+  text-align: right;
+  width: 20%;
+}
+
+/* works */
+.works-section {
+  background-color: #8a8a8a;
+  text-align: center;
+}
+.works-section .works-list {
+  display: block;
+  /* max-width: 144rem; */
+  margin: 0 auto;
+}
+.works-section .works-item {
+  display: inline-block;
+  width: 48%;
+  margin: 1% 1%;
+  vertical-align: top;
+  background-color: #555;
+  border-radius: 3rem;
+  box-sizing: border-box;
+}
+
+/* 반응형 작업 */
+@media (max-width: 1024px) {
+  .intro-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 12rem;
+  }
+  .intro-section > div {
+    width: 80%;
+  }
+  .intro-section .right .more-info-btn {
+    margin-bottom: 6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro-section {
+    margin-top: 10rem;
+  }
+  .intro-section .left .circle-container {
+    width: 26rem;
+    height: 26rem;
+  }
+  .intro-section .left .circular-text {
+    width: 26rem;
+    height: 28rem;
+  }
+  .intro-section .left .speech-bubble {
+    width: 22rem;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+  }
+  .intro-section .left .speech-bubble::before {
+    border-width: 12px 12px 0;
+    bottom: -12px;
+    left: calc(50% - 13px);
+  }
+  .intro-section .left .speech-bubble::after {
+    border-width: 11px 11px 0;
+    bottom: -10px;
+    left: calc(50% - 12px);
+  }
+  .intro-section .right .intro-desc {
+    font-size: 1.4rem;
+  }
+  .intro-section .right .intro-desc h1 {
+    font-size: 3rem;
+  }
+  .intro-section .right .intro-desc h2 {
+    font-size: 1.8rem;
+  }
+  .intro-section .right .personal-info {
+    font-size: 1.4rem;
+  }
+  .intro-section .right .personal-info h2 {
+    font-size: 1.8rem;
+  }
+  .intro-section .right .more-info-btn {
+    font-size: 1.2rem;
+    padding: 0 2rem;
+    height: 4rem;
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-section {
+    margin-top: 8rem;
+  }
+  .intro-section > div {
+    width: 100%;
+  }
+  .intro-section .left .circle-container {
+    width: 20rem;
+    height: 20rem;
+  }
+  .intro-section .left .circular-text {
+    width: 20rem;
+    height: 22rem;
+  }
+  .intro-section .left .speech-bubble {
+    width: 18rem;
+    font-size: 1.4rem;
+    padding: 1rem;
+  }
+  .intro-section .left .speech-bubble::before {
+    border-width: 10px 10px 0;
+    bottom: -10px;
+    left: calc(50% - 11px);
+  }
+  .intro-section .left .speech-bubble::after {
+    border-width: 9px 9px 0;
+    bottom: -8px;
+    left: calc(50% - 10px);
+  }
+  .intro-section .right .intro-desc {
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+  }
+  .intro-section .right .intro-desc h1 {
+    font-size: 2.4rem;
+  }
+  .intro-section .right .intro-desc h2 {
+    font-size: 1.4rem;
+  }
+  .intro-section .right .personal-info {
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+  }
+  .intro-section .right .personal-info h2 {
+    font-size: 1.6rem;
+  }
+  .intro-section .right .more-info-btn {
+    margin-bottom: 4rem;
+  }
+}

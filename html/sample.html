@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chae's Portfolio</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fd04870750.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/transition.js"></script>
+  </head>
+
+  <body>
+    <header id="header">
+      <a class="logo" href="#">CHAE</a>
+        <nav class="main-nav">
+          <ul>
+            <li>
+              <a href="#"><span class="nav-txt">About Me</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav-txt">Works</span></a>
+            </li>
+            <li>
+              <a href="#"><span class="nav-txt">Contact</span></a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+      <!-- intro -->
+      <section class="intro-section">
+        <div class="left">
+            <div class="circle-container">
+              <img src="src/img/memoji_1.PNG" alt="메인 이미지" />
+              <div class="circular-text" id="circularText"></div>
+              <div class="speech-bubble">Wanna know more<br />about me?</div>
+            </div>
+        </div>
+        <div class="right">
+          <div>
+            <div class="intro-desc">
+              <h2>HI! HOW ARE YOU?</h2>
+              <h1>
+                I'M
+                <span class="name">
+                  <strong class="typing cursor"></strong>
+                </span>
+              </h1>
+              <p>
+                안녕하세요, 안채원입니다. <br /><br />
+                이 페이지는 저에 대해 조금 더 자세히 소개하기 위해 만들었습니다.
+                <br />
+                다양한 경험 속에서 배운 점과 도전했던 과정들을 기록했으며, 그
+                안에서 제가 어떻게 일하고 성장해왔는지를 담고자 했습니다.
+                <br /><br />
+                방문해 주셔서 감사합니다! :)
+              </p>
+            </div>
+            <div class="personal-info">
+              <h2>PERSONAL INFOS</h2>
+              <ul>
+                <li><span>Name : </span>안채원</li>
+                <li><span>Age : </span>만 26세 (1998.08)</li>
+                <li><span>Phone : </span>010.9363.0980</li>
+                <li><span>Email : </span>codnjsm@gmail.com</li>
+              </ul>
+            </div>
+            <a
+              href="https://mercurial-whale-429.notion.site/Chae-s-Cover-Letter-10b83e50762a807f9866d8ce66b22a0b?source=copy_link"
+              class="more-info-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MORE ABOUT ME
+            </a>
+
+            <!-- <div class="scroll-cue">
+              <lottie-player
+                src="./src/scroll.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></lottie-player>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- about me -->
+      <section class="about-section">
+        <div class="cv-wrapper">
+          <div class="cv-block">
+            <h2 class="cv-title">Experience Overview</h2>
+            <p class="cv-summary">총 경력 <strong>2년 5개월</strong></p>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <span class="cv-left">앵커스</span>
+                <span class="cv-right">2023.03 - 현재</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv-block">
+            <h2 class="cv-title">Education</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <span class="cv-left"
+                  >[더조은 컴퓨터아카데미 종료] UI/UX 웹 디자인, 웹 퍼블리셔
+                  실무자 양성과정 수료</span
+                >
+                <span class="cv-right">2022.11 - 2023.02</span>
+              </li>
+              <li class="cv-item">
+                <span class="cv-left">가톨릭대학교 화학과 (학사)</span>
+                <span class="cv-right">2020.03 - 2025.02</span>
+              </li>
+              <li class="cv-item">
+                <span class="cv-left"
+                  >명지전문대 소프트웨어콘텐츠과 (전문학사)</span
+                >
+                <span class="cv-right">2017.03 - 2019.02</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv-block">
+            <h2 class="cv-title">Language & Certifications</h2>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <span class="cv-left">TOEIC 840 (LC 465, RC 375)</span>
+                <span class="cv-right">2024.05</span>
+              </li>
+              <li class="cv-item">
+                <span class="cv-left">한국사능력검정시험 2급</span>
+                <span class="cv-right">2021.02</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- works -->
+      <section class="works-section">
+        <ul class="works-list">
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+          <li class="works-item">
+            <img class="works-img"></img>
+            <p class="works-desc"></p>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer id="footer"></footer>
+  </body>
+</html>
