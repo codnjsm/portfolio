@@ -313,22 +313,37 @@
 
 /* about-me */
 .about-me {
-    padding-top: 5rem;
+    padding: 5rem 2rem 0;
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    background-size: 95vw;
+    background-attachment: fixed;
+    background-image: url('../src/img/about_me_white_shadow_only.png');
+    /* background-color: #f5f5f5; */
+}
+.about-me .info-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    justify-content: center;
 }
 .about-me .info-block {
-    width: 48%;
+    background-color: #fff;
+    width: 40%;
+    height: auto;
     padding: 3rem 3rem 4rem;
     border: 1px solid #ccc;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .about-me .info-block:hover {
-    transform: scale(1.01);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.3);
 }
 .about-me .info-title {
     font-weight: 700;
@@ -349,6 +364,12 @@
 
 /* 반응형 */
 @media (max-width: 1024px) {
+    .about-me {
+        height: auto;
+        background-attachment: scroll;
+        background-position: center 60%;
+        background-size: 120vw auto;
+    }
     .about-me .info-block {
         width: 100%;
     }
@@ -374,4 +395,9 @@
     .about-me .info-list li {
         font-size: 1.2rem;
     }
+}
+
+/* works */
+.works {
+    height: calc(100vh - 5rem);
 }
