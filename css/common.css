@@ -55,6 +55,26 @@ header .main-nav > ul > li:first-child::after {
     margin: 0 auto;
     padding: 0 3rem;
 }
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #333;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+.section-desc {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 12rem;
+    text-align: center;
+}
+.section-desc span {
+    font-size: 1.4rem;
+    color: #999;
+}
+
 /* footer */
 footer {
     width: 100%;
@@ -67,6 +87,18 @@ footer {
 }
 
 /* 반응형 */
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-desc {
+        font-size: 1.4rem;
+        margin-bottom: 5rem;
+    }
+    .section-desc span {
+        font-size: 1.2rem;
+    }
+}
 @media (max-width: 480px) {
     header .main-nav > ul {
         font-size: 1.2rem;
@@ -75,6 +107,17 @@ footer {
     header .main-nav > ul > li::after {
         top: 0.5rem;
         left: -1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .section-desc {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+    }
+    .section-desc span {
+        font-size: 1rem;
     }
     footer {
         font-size: 1.2rem;
