@@ -49,7 +49,9 @@ header .main-nav > ul > li .nav-txt:hover {
 header .main-nav > ul > li:first-child::after {
     display: none;
 }
-
+.page-wrapper {
+    overflow: hidden;
+}
 .page-layout {
     max-width: 166rem;
     margin: 0 auto;
