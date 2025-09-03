@@ -633,3 +633,54 @@
 .contact {
     padding: 10rem 2rem;
 }
+.contact-wrapper {
+    max-width: 100rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+}
+.contact-wrapper ul {
+    width: 70%;
+}
+.contact-wrapper ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #bababa;
+    height: 6rem;
+    font-size: 1.8rem;
+}
+.contact-wrapper ul li:last-child {
+    justify-content: end;
+}
+.contact-wrapper img {
+    width: 20%;
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        justify-content: center;
+    }
+    .contact-wrapper ul {
+        width: 80%;
+    }
+    .contact-wrapper ul li {
+        font-size: 1.6rem;
+        height: 5.5rem;
+    }
+    .contact-wrapper img {
+        display: none;
+    }
+}
+@media (max-width: 576px) {
+    .contact-wrapper ul {
+        width: 100%;
+    }
+    .contact-wrapper ul li {
+        font-size: 1.4rem;
+        height: 5rem;
+    }
+}
