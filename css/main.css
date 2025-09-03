@@ -596,6 +596,10 @@
     .desc-swiper .link-btn {
         font-size: 1.2rem;
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important;
+    }
 }
 @media (max-width: 480px) {
     .img-swiper {
