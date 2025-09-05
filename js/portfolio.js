@@ -1,51 +1,68 @@
-function drawCircularText() {
-    const text = 'WEB PUBLISHER • FRONTEND • JAVASCRIPT • REACT • HTML • CSS • ';
-    const chars = text.split('');
+(function ($) {
+    $(function () {
+        var $loader = $('#lottie-loader');
+        if ($loader.length && window.lottie) {
+            lottie.loadAnimation({
+                container: $loader[0],
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'src/lottie/loading.json',
+            });
+        }
+    });
 
-    let radius = 240;
-    const w = window.innerWidth;
+    const $wrapper = $('.page-wrapper');
 
-    if (w <= 480) {
-        radius = 140;
-    } else if (w <= 576) {
-        radius = 180;
-    } else {
-        radius = 240;
+    // preloader 여부와 관계없이 무조건 fade-in
+    setTimeout(function () {
+        $('#preloader').fadeOut(1200, function () {
+            $wrapper.addClass('fade-in');
+        });
+    }, 1500);
+
+    // fallback: preloader 없어도 fade-in
+    if (!$('#preloader').length) {
+        $wrapper.addClass('fade-in');
+    }
+    // 원형 텍스트
+    function drawCircularText() {
+        var text = 'WEB PUBLISHER • FRONTEND • JAVASCRIPT • REACT • HTML • CSS • ';
+        var chars = text.split('');
+        var w = $(window).width();
+        var radius = w <= 480 ? 140 : w <= 576 ? 180 : 240;
+
+        var $container = $('#circularText');
+        if (!$container.length) return;
+
+        $container.empty();
+        var total = chars.length;
+
+        $.each(chars, function (i, ch) {
+            var angle = (360 / total) * i;
+            $('<span/>', { text: ch })
+                .css({
+                    transform: 'rotate(' + angle + 'deg) translate(' + radius + 'px) rotate(90deg)',
+                })
+                .appendTo($container);
+        });
     }
 
-    const $container = $('#circularText');
-    $container.empty();
-    const total = chars.length;
+    // 타이핑 이펙트
+    function initTyping() {
+        var words = ['CHAE WON', 'WEB DEVELOPER'];
+        var currentWord = 0,
+            currentChar = 0,
+            isDeleting = false;
+        var $typing = $('.name .typing');
+        if (!$typing.length) return;
 
-    chars.forEach((char, i) => {
-        const angle = (360 / total) * i;
-        const $span = $('<span>').text(char);
-        $span.css({
-            transform: `rotate(${angle}deg) translate(${radius}px) rotate(90deg)`,
-        });
-        $container.append($span);
-    });
-}
+        var typingSpeed = 150;
+        var pauseTime = 1200;
 
-$(document).ready(function () {
-    drawCircularText();
-
-    $(window).on('resize', function () {
-        drawCircularText();
-    });
-
-    $(function () {
-        const words = ['CHAE WON', 'WEB DEVELOPER'];
-        let currentWord = 0;
-        let currentChar = 0;
-        let isDeleting = false;
-        const $typing = $('.name .typing');
-        const typingSpeed = 150;
-        const pauseTime = 1200;
-
-        function typeEffect() {
-            const fullText = words[currentWord];
-            const visibleText = isDeleting
+        function tick() {
+            var fullText = words[currentWord];
+            var visibleText = isDeleting
                 ? fullText.substring(0, currentChar--)
                 : fullText.substring(0, currentChar++);
 
@@ -53,83 +70,138 @@ $(document).ready(function () {
 
             if (!isDeleting && currentChar === fullText.length + 1) {
                 isDeleting = true;
-                setTimeout(typeEffect, pauseTime);
+                setTimeout(tick, pauseTime);
             } else if (isDeleting && currentChar === 0) {
                 isDeleting = false;
                 currentWord = (currentWord + 1) % words.length;
-                setTimeout(typeEffect, 400);
+                setTimeout(tick, 400);
             } else {
-                setTimeout(typeEffect, isDeleting ? 50 : typingSpeed);
+                setTimeout(tick, isDeleting ? 50 : typingSpeed);
             }
         }
 
-        typeEffect();
-    });
-
-    // scroll lottie
-    let lottieVisible = true;
-    $(window).on('scroll', function () {
-        const scrollTop = $(window).scrollTop();
-        const $lottie = $('.intro .scroll-lottie-01');
-
-        if (scrollTop > 10 && lottieVisible) {
-            lottieVisible = false;
-            $lottie.stop().fadeOut(600);
-        } else if (scrollTop <= 10 && !lottieVisible) {
-            lottieVisible = true;
-            $lottie.stop().fadeIn(600);
-        }
-    });
-});
-
-// works swiper
-$(function () {
-    var SPEED = 600;
-
-    // 왼쪽: 이미지
-    var imgSwiper = new Swiper('.img-swiper', {
-        loop: true,
-        effect: 'cards',
-        grabCursor: true,
-        speed: SPEED,
-        pagination: {
-            el: '.img-swiper .swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.img-swiper .swiper-button-next',
-            prevEl: '.img-swiper .swiper-button-prev',
-        },
-    });
-
-    // 오른쪽: 설명 (이미지에만 조작, 설명은 따라오기만)
-    var descSwiper = new Swiper('.desc-swiper', {
-        loop: true,
-        effect: 'fade',
-        fadeEffect: { crossFade: true },
-        allowTouchMove: false,
-        speed: SPEED,
-    });
-
-    // 인덱스 동기화 (loop에서도 안정)
-    imgSwiper.on('slideChangeTransitionStart', function () {
-        descSwiper.slideToLoop(imgSwiper.realIndex, imgSwiper.params.speed, false);
-    });
-
-    // (권장) 슬라이드 개수/순서 확인
-    var imgCount = document.querySelectorAll(
-        '.img-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-duplicate)'
-    ).length;
-    var descCount = document.querySelectorAll(
-        '.desc-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-duplicate)'
-    ).length;
-    if (imgCount !== descCount) {
-        console.warn(
-            '[Works] 슬라이드 개수가 다릅니다. 동기화 정확도를 위해 개수/순서를 맞추세요. (img:',
-            imgCount,
-            ', desc:',
-            descCount,
-            ')'
-        );
+        tick();
     }
-});
+
+    // 스크롤 로티 표시/숨김
+    function initScrollLottie() {
+        var $win = $(window);
+        var $lottie = $('.intro .scroll-lottie-01');
+        if (!$lottie.length) return;
+
+        var lottieVisible = true;
+
+        $win.on('scroll', function () {
+            var scrollTop = $win.scrollTop();
+            if (scrollTop > 10 && lottieVisible) {
+                lottieVisible = false;
+                $lottie.stop(true).fadeOut(600);
+            } else if (scrollTop <= 10 && !lottieVisible) {
+                lottieVisible = true;
+                $lottie.stop(true).fadeIn(600);
+            }
+        }).trigger('scroll');
+    }
+
+    // Swiper
+    function initSwipers() {
+        if (typeof Swiper === 'undefined') return;
+
+        var SPEED = 600;
+
+        var imgSwiper = new Swiper('.img-swiper', {
+            loop: true,
+            effect: 'cards',
+            grabCursor: true,
+            speed: SPEED,
+            pagination: {
+                el: '.img-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.img-swiper .swiper-button-next',
+                prevEl: '.img-swiper .swiper-button-prev',
+            },
+        });
+
+        var descSwiper = new Swiper('.desc-swiper', {
+            loop: true,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            allowTouchMove: false,
+            speed: SPEED,
+        });
+
+        imgSwiper.on('slideChangeTransitionStart', function () {
+            descSwiper.slideToLoop(imgSwiper.realIndex, imgSwiper.params.speed, false);
+        });
+
+        var imgCount = $(
+            '.img-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-duplicate)'
+        ).length;
+        var descCount = $(
+            '.desc-swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-duplicate)'
+        ).length;
+        if (imgCount !== descCount) {
+            console.warn(
+                '[Works] 슬라이드 개수가 다릅니다. (img:',
+                imgCount,
+                ', desc:',
+                descCount,
+                ')'
+            );
+        }
+    }
+
+    // 섹션 타이틀/설명 애니메이션
+    function initSectionReveal() {
+        var $win = $(window);
+        var $sections = $('section');
+        if (!$sections.length) return;
+
+        function update() {
+            $sections.each(function () {
+                var $sec = $(this);
+                var $title = $sec.find('.section-title');
+                var $desc = $sec.find('.section-desc');
+
+                var winTop = $win.scrollTop();
+                var winH = $win.height();
+                var winBottom = winTop + winH;
+
+                var rect = $sec[0].getBoundingClientRect();
+                var elTop = winTop + rect.top;
+                var elBottom = elTop + rect.height;
+
+                var elVisible = Math.max(
+                    0,
+                    Math.min(winBottom, elBottom) - Math.max(winTop, elTop)
+                );
+                var visibleRatio = rect.height ? elVisible / rect.height : 0;
+
+                if (visibleRatio >= 0.2) {
+                    if ($title.length) $title.addClass('visible');
+                    if ($desc.length) $desc.addClass('visible');
+                } else {
+                    if ($title.length) $title.removeClass('visible');
+                    if ($desc.length) $desc.removeClass('visible');
+                }
+            });
+        }
+
+        $win.on('scroll resize', update);
+        update();
+    }
+
+    $(function () {
+        drawCircularText();
+        initTyping();
+        initScrollLottie();
+        initSwipers();
+        initSectionReveal();
+
+        $(window).on('resize', function () {
+            drawCircularText();
+        });
+    });
+})(jQuery);
