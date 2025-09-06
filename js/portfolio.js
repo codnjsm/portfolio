@@ -1,31 +1,48 @@
 (function ($) {
+    var LOADER_SPEED = 1;
+
     $(function () {
         var $loader = $('#lottie-loader');
+        var loaderAnim = null;
+
         if ($loader.length && window.lottie) {
-            lottie.loadAnimation({
+            loaderAnim = lottie.loadAnimation({
                 container: $loader[0],
                 renderer: 'svg',
                 loop: true,
                 autoplay: true,
                 path: 'src/lottie/loading.json',
             });
+            if (loaderAnim && typeof loaderAnim.setSpeed === 'function') {
+                loaderAnim.setSpeed(LOADER_SPEED);
+            }
+        }
+
+        var $wrapper = $('.page-wrapper');
+        $wrapper.removeClass('fade-in').css('opacity', 0);
+
+        setTimeout(function () {
+            if ($loader.length) {
+                $loader.fadeOut(500, function () {
+                    if (loaderAnim && typeof loaderAnim.destroy === 'function') {
+                        loaderAnim.destroy();
+                    }
+                    $('#preloader').fadeOut(500, function () {
+                        $wrapper.addClass('fade-in').css('opacity', '');
+                    });
+                });
+            } else {
+                $('#preloader').fadeOut(500, function () {
+                    $wrapper.addClass('fade-in').css('opacity', '');
+                });
+            }
+        }, 1500);
+
+        if (!$('#preloader').length) {
+            $wrapper.addClass('fade-in').css('opacity', '');
         }
     });
 
-    const $wrapper = $('.page-wrapper');
-
-    // preloader 여부와 관계없이 무조건 fade-in
-    setTimeout(function () {
-        $('#preloader').fadeOut(1200, function () {
-            $wrapper.addClass('fade-in');
-        });
-    }, 1500);
-
-    // fallback: preloader 없어도 fade-in
-    if (!$('#preloader').length) {
-        $wrapper.addClass('fade-in');
-    }
-    // 원형 텍스트
     function drawCircularText() {
         var text = 'WEB PUBLISHER • FRONTEND • JAVASCRIPT • REACT • HTML • CSS • ';
         var chars = text.split('');
@@ -48,7 +65,6 @@
         });
     }
 
-    // 타이핑 이펙트
     function initTyping() {
         var words = ['CHAE WON', 'WEB DEVELOPER'];
         var currentWord = 0,
@@ -79,11 +95,9 @@
                 setTimeout(tick, isDeleting ? 50 : typingSpeed);
             }
         }
-
         tick();
     }
 
-    // 스크롤 로티 표시/숨김
     function initScrollLottie() {
         var $win = $(window);
         var $lottie = $('.intro .scroll-lottie-01');
@@ -103,7 +117,6 @@
         }).trigger('scroll');
     }
 
-    // Swiper
     function initSwipers() {
         if (typeof Swiper === 'undefined') return;
 
@@ -114,10 +127,7 @@
             effect: 'cards',
             grabCursor: true,
             speed: SPEED,
-            pagination: {
-                el: '.img-swiper .swiper-pagination',
-                clickable: true,
-            },
+            pagination: { el: '.img-swiper .swiper-pagination', clickable: true },
             navigation: {
                 nextEl: '.img-swiper .swiper-button-next',
                 prevEl: '.img-swiper .swiper-button-prev',
@@ -153,7 +163,6 @@
         }
     }
 
-    // 섹션 타이틀/설명 애니메이션
     function initSectionReveal() {
         var $win = $(window);
         var $sections = $('section');

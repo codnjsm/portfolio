@@ -61,7 +61,12 @@ header .main-nav > ul > li:first-child::after {
     display: none;
 }
 .page-wrapper {
+    opacity: 0;
     overflow: hidden;
+}
+.page-wrapper.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 .page-layout {
     max-width: 166rem;
